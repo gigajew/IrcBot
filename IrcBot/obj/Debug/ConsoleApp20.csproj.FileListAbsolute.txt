@@ -1,7 +1,0 @@
-C:\Users\Home\source\repos\ConsoleApp20\ConsoleApp20\bin\Debug\ConsoleApp20.exe.config
-C:\Users\Home\source\repos\ConsoleApp20\ConsoleApp20\bin\Debug\ConsoleApp20.exe
-C:\Users\Home\source\repos\ConsoleApp20\ConsoleApp20\bin\Debug\ConsoleApp20.pdb
-C:\Users\Home\source\repos\ConsoleApp20\ConsoleApp20\obj\Debug\ConsoleApp20.csprojAssemblyReference.cache
-C:\Users\Home\source\repos\ConsoleApp20\ConsoleApp20\obj\Debug\ConsoleApp20.csproj.CoreCompileInputs.cache
-C:\Users\Home\source\repos\ConsoleApp20\ConsoleApp20\obj\Debug\ConsoleApp20.exe
-C:\Users\Home\source\repos\ConsoleApp20\ConsoleApp20\obj\Debug\ConsoleApp20.pdb
