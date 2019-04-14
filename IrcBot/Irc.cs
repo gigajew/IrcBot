@@ -58,7 +58,7 @@ namespace IrcBot
 
                 int available = socketObject.Available;
                 char[] buffer = new char[available];
-                int received = sr.ReadBlock(buffer, 0, available);
+                int received = sr.Read(buffer, 0, available);
 
                 if (received <= 0)
                     return;

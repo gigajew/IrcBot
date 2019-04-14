@@ -5,3 +5,10 @@ C:\Users\Home\source\repos\ConsoleApp20\IrcBot\obj\Debug\IrcBot.csprojAssemblyRe
 C:\Users\Home\source\repos\ConsoleApp20\IrcBot\obj\Debug\IrcBot.csproj.CoreCompileInputs.cache
 C:\Users\Home\source\repos\ConsoleApp20\IrcBot\obj\Debug\IrcBot.exe
 C:\Users\Home\source\repos\ConsoleApp20\IrcBot\obj\Debug\IrcBot.pdb
+C:\Users\Home\source\repos\IrcBot\IrcBot\bin\Debug\IrcBot.exe.config
+C:\Users\Home\source\repos\IrcBot\IrcBot\bin\Debug\IrcBot.exe
+C:\Users\Home\source\repos\IrcBot\IrcBot\bin\Debug\IrcBot.pdb
+C:\Users\Home\source\repos\IrcBot\IrcBot\obj\Debug\IrcBot.csprojAssemblyReference.cache
+C:\Users\Home\source\repos\IrcBot\IrcBot\obj\Debug\IrcBot.csproj.CoreCompileInputs.cache
+C:\Users\Home\source\repos\IrcBot\IrcBot\obj\Debug\IrcBot.exe
+C:\Users\Home\source\repos\IrcBot\IrcBot\obj\Debug\IrcBot.pdb

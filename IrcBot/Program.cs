@@ -43,6 +43,17 @@ namespace IrcBot
 
         private static void Read(object sender, string e)
         {
+            /*
+             * Pong response, leave this first expression alone
+             */
+            if (e.StartsWith("PING"))
+            {
+                Send("PONG " + e.Substring(':') + 1);  return;
+            }
+
+            /*
+             * Parse some data
+             */ 
             int privIndex = e.IndexOf("PRIVMSG");
             if (privIndex == -1)
                 return;
