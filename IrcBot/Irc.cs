@@ -60,8 +60,6 @@ namespace IrcBot
                 int available = socketObject.Available;
                 char[] buffer = new char[available];
                 int received = sr.Read(buffer, 0, available);
-                if (received <= 0)
-                    return;
 
                 string raw = new string(buffer);
                 string[] messages = raw.Split('\n');
