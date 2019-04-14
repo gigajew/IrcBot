@@ -43,6 +43,8 @@ namespace IrcBot
 
         private static void Read(object sender, string e)
         {
+            Console.WriteLine(e);
+
             /*
              * Pong response, leave this first expression alone
              */
