@@ -39,6 +39,13 @@ namespace IrcBot
 
         protected void OnRead(object sender, ElapsedEventArgs e)
         {
+            while (messageQueue.Count > 0)
+            {
+                if (Equals(MessageReceived, null))
+                    continue;
+                MessageReceived(this, messageQueue.Dequeue());
+            }
+
             bool connected = !((socketObject.Poll(1000, SelectMode.SelectRead) && (socketObject.Available == 0)) || !socketObject.Connected);
             if (!connected)
                 readTimer.Stop();
@@ -47,19 +54,14 @@ namespace IrcBot
             if (!has_data)
                 return;
 
-            while (messageQueue.Count > 0)
-            {
-                if (Equals(MessageReceived, null))
-                    continue;
-                MessageReceived(this, messageQueue.Dequeue());
-            }
-
             using (NetworkStream s = new NetworkStream(socketObject))
             using (StreamReader sr = new StreamReader(s))
             {
                 int available = socketObject.Available;
                 char[] buffer = new char[available];
                 int received = sr.Read(buffer, 0, available);
+                if (received <= 0)
+                    return;
 
                 string raw = new string(buffer);
                 string[] messages = raw.Split('\n');
