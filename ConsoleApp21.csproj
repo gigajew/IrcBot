@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F39A555B-8A39-4F05-830C-D76E5F0F4099}</ProjectGuid>
+    <ProjectGuid>{C75AA1DC-4E75-402B-83C3-F26828CA34CB}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>IrcBot</RootNamespace>
     <AssemblyName>IrcBot</AssemblyName>
@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ISocketClient.cs" />
     <Compile Include="Irc.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
