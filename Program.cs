@@ -10,8 +10,6 @@ namespace IrcBot
 
         const string owner_nick = "awfakwfakw";
 
-        const string client_software = "KmSPike v3.5";
-
         static void Main(string[] args)
         {
 
